@@ -6,536 +6,90 @@
     <title>Luciano Bonadona Siles — Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --forest-deep: #162016;
-            --forest-dark: #1e301e;
-            --forest-mid: #2a4a2a;
-            --forest-accent: #3a6a3a;
-            --forest-light: #4a8a4a;
-            --forest-glow: #5aad5a;
-            --cream: #f4f0e8;
-            --cream-muted: #c8c0b4;
-            --gold: #c9a84c;
-            --gold-light: #dfc06a;
-            --text-light: #e6e2da;
-            --text-muted: #a8a098;
-            --white: #ffffff;
-        }
-
+        :root { --forest-deep: #162016; --forest-dark: #1e301e; --forest-mid: #2a4a2a; --forest-accent: #3a6a3a; --forest-light: #4a8a4a; --forest-glow: #5aad5a; --cream: #f4f0e8; --cream-muted: #c8c0b4; --gold: #c9a84c; --gold-light: #dfc06a; --text-light: #e6e2da; --text-muted: #a8a098; --white: #ffffff; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-
-        body {
-            font-family: 'DM Sans', sans-serif;
-            background: var(--forest-deep);
-            color: var(--text-light);
-            overflow-x: hidden;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            inset: 0;
-            background:
-                radial-gradient(ellipse at 15% 30%, rgba(42, 74, 42, 0.35) 0%, transparent 55%),
-                radial-gradient(ellipse at 85% 70%, rgba(58, 106, 58, 0.18) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        /* ════════════ NAVIGATION ════════════ */
-        nav {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            z-index: 100;
-            padding: 1.25rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(22, 32, 22, 0.88);
-            backdrop-filter: blur(18px);
-            border-bottom: 1px solid rgba(90, 173, 90, 0.08);
-            transition: padding 0.3s ease;
-        }
-
-        .nav-logo {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.35rem;
-            font-weight: 700;
-            color: var(--gold);
-            letter-spacing: 0.5px;
-        }
-
+        body { font-family: 'DM Sans', sans-serif; background: var(--forest-deep); color: var(--text-light); overflow-x: hidden; }
+        body::before { content: ''; position: fixed; inset: 0; background: radial-gradient(ellipse at 15% 30%, rgba(42,74,42,0.35) 0%, transparent 55%), radial-gradient(ellipse at 85% 70%, rgba(58,106,58,0.18) 0%, transparent 50%); pointer-events: none; z-index: 0; }
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.25rem 5%; display: flex; justify-content: space-between; align-items: center; background: rgba(22,32,22,0.88); backdrop-filter: blur(18px); border-bottom: 1px solid rgba(90,173,90,0.08); }
+        .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 700; color: var(--gold); }
         .nav-links { display: flex; gap: 2.2rem; list-style: none; }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-muted);
-            font-size: 0.78rem;
-            font-weight: 500;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            transition: color 0.3s;
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px; left: 0;
-            width: 0; height: 1px;
-            background: var(--gold);
-            transition: width 0.3s;
-        }
-
+        .nav-links a { text-decoration: none; color: var(--text-muted); font-size: 0.78rem; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s; position: relative; }
+        .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--gold); transition: width 0.3s; }
         .nav-links a:hover { color: var(--cream); }
         .nav-links a:hover::after { width: 100%; }
-
-        .nav-hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            background: none;
-            border: none;
-            padding: 4px;
-        }
-
-        .nav-hamburger span {
-            width: 24px; height: 2px;
-            background: var(--cream);
-            transition: 0.3s;
-        }
-
-        /* ════════════ HERO ════════════ */
-        .hero {
-            position: relative;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 0 8%;
-            z-index: 1;
-        }
-
+        .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+        .nav-hamburger span { width: 24px; height: 2px; background: var(--cream); }
+        .hero { position: relative; min-height: 100vh; display: flex; align-items: center; padding: 0 8%; z-index: 1; }
         .hero-content { max-width: 680px; }
-
-        .hero-tag {
-            display: inline-block;
-            font-size: 0.72rem;
-            font-weight: 600;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 1.8rem;
-            padding: 0.5rem 1.1rem;
-            border: 1px solid rgba(201, 168, 76, 0.25);
-            opacity: 0;
-            animation: fadeUp 0.7s ease 0.2s forwards;
-        }
-
-        .hero h1 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 4rem;
-            font-weight: 600;
-            line-height: 1.1;
-            color: var(--cream);
-            margin-bottom: 1.4rem;
-            opacity: 0;
-            animation: fadeUp 0.7s ease 0.35s forwards;
-        }
-
+        .hero-tag { display: inline-block; font-size: 0.72rem; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 1.8rem; padding: 0.5rem 1.1rem; border: 1px solid rgba(201,168,76,0.25); opacity: 0; animation: fadeUp 0.7s ease 0.2s forwards; }
+        .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: 4rem; font-weight: 600; line-height: 1.1; color: var(--cream); margin-bottom: 1.4rem; opacity: 0; animation: fadeUp 0.7s ease 0.35s forwards; }
         .hero h1 .accent { color: var(--forest-glow); }
-
-        .hero-description {
-            font-size: 1.02rem;
-            line-height: 1.85;
-            color: var(--text-muted);
-            margin-bottom: 2.5rem;
-            max-width: 540px;
-            opacity: 0;
-            animation: fadeUp 0.7s ease 0.5s forwards;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            opacity: 0;
-            animation: fadeUp 0.7s ease 0.65s forwards;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.85rem 1.8rem;
-            font-family: 'DM Sans', sans-serif;
-            font-size: 0.82rem;
-            font-weight: 600;
-            letter-spacing: 1.2px;
-            text-transform: uppercase;
-            text-decoration: none;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .btn-gold {
-            background: var(--gold);
-            color: var(--forest-deep);
-        }
-        .btn-gold:hover {
-            background: var(--gold-light);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(201, 168, 76, 0.3);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--cream);
-            border: 1px solid rgba(232, 228, 220, 0.25);
-        }
-        .btn-outline:hover {
-            border-color: var(--cream);
-            background: rgba(232, 228, 220, 0.04);
-            transform: translateY(-2px);
-        }
-
-        /* Hero decorative rings */
-        .hero-rings {
-            position: absolute;
-            right: 6%;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 380px; height: 380px;
-            opacity: 0;
-            animation: fadeIn 1s ease 0.9s forwards;
-        }
-
-        .ring {
-            position: absolute;
-            border-radius: 50%;
-            border: 1px solid rgba(90, 173, 90, 0.12);
-        }
-
+        .hero-description { font-size: 1.02rem; line-height: 1.85; color: var(--text-muted); margin-bottom: 2.5rem; max-width: 540px; opacity: 0; animation: fadeUp 0.7s ease 0.5s forwards; }
+        .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.7s ease 0.65s forwards; }
+        .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 1.8rem; font-family: 'DM Sans', sans-serif; font-size: 0.82rem; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; text-decoration: none; border: none; cursor: pointer; transition: all 0.3s ease; }
+        .btn-gold { background: var(--gold); color: var(--forest-deep); }
+        .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(201,168,76,0.3); }
+        .btn-outline { background: transparent; color: var(--cream); border: 1px solid rgba(232,228,220,0.25); }
+        .btn-outline:hover { border-color: var(--cream); background: rgba(232,228,220,0.04); transform: translateY(-2px); }
+        .hero-rings { position: absolute; right: 6%; top: 50%; transform: translateY(-50%); width: 380px; height: 380px; opacity: 0; animation: fadeIn 1s ease 0.9s forwards; }
+        .ring { position: absolute; border-radius: 50%; border: 1px solid rgba(90,173,90,0.12); }
         .ring-1 { inset: 0; animation: spin 35s linear infinite; }
-        .ring-2 { inset: 55px; animation: spin 28s linear infinite reverse; border-color: rgba(201, 168, 76, 0.12); }
+        .ring-2 { inset: 55px; animation: spin 28s linear infinite reverse; border-color: rgba(201,168,76,0.12); }
         .ring-3 { inset: 110px; animation: spin 22s linear infinite; }
-
-        .dot {
-            position: absolute;
-            width: 5px; height: 5px;
-            background: var(--forest-glow);
-            border-radius: 50%;
-            box-shadow: 0 0 8px rgba(90, 173, 90, 0.5);
-        }
-
+        .dot { position: absolute; width: 5px; height: 5px; background: var(--forest-glow); border-radius: 50%; box-shadow: 0 0 8px rgba(90,173,90,0.5); }
         .ring-1 .dot { top: -2px; left: 50%; }
         .ring-2 .dot { top: 50%; right: -2px; }
         .ring-3 .dot { bottom: -2px; left: 50%; }
-
-        /* ════════════ SECTIONS (shared) ════════════ */
         section { position: relative; z-index: 1; padding: 6.5rem 8%; }
-
-        .sec-label {
-            font-size: 0.68rem;
-            font-weight: 600;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 0.8rem;
-        }
-
-        .sec-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.6rem;
-            font-weight: 600;
-            color: var(--cream);
-            margin-bottom: 1rem;
-        }
-
-        .sec-sub {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            line-height: 1.75;
-            max-width: 540px;
-            margin-bottom: 3rem;
-        }
-
-        /* ════════════ ABOUT ════════════ */
-        #about { background: linear-gradient(180deg, transparent 0%, rgba(30, 48, 30, 0.25) 50%, transparent 100%); }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 4rem;
-            align-items: start;
-        }
-
-        .about-text p {
-            font-size: 0.98rem;
-            line-height: 1.9;
-            color: var(--text-muted);
-            margin-bottom: 1.4rem;
-        }
-
-        .about-details {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.25rem;
-        }
-
-        .detail-card {
-            padding: 1.6rem;
-            background: rgba(42, 74, 42, 0.18);
-            border: 1px solid rgba(90, 173, 90, 0.08);
-            transition: all 0.3s;
-        }
-
-        .detail-card:hover {
-            border-color: rgba(201, 168, 76, 0.25);
-            transform: translateY(-3px);
-        }
-
-        .detail-card .label {
-            font-size: 0.68rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 0.45rem;
-        }
-
-        .detail-card .value {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--cream);
-        }
-
-        /* ════════════ PROJECTS ════════════ */
-        .project-card {
-            padding: 2.4rem;
-            background: rgba(30, 48, 30, 0.35);
-            border: 1px solid rgba(90, 173, 90, 0.08);
-            margin-bottom: 1.5rem;
-            transition: all 0.35s;
-        }
-
-        .project-card:hover {
-            border-color: rgba(201, 168, 76, 0.25);
-            background: rgba(30, 48, 30, 0.5);
-            transform: translateX(4px);
-        }
-
-        .project-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 0.8rem;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .project-card h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.45rem;
-            font-weight: 600;
-            color: var(--cream);
-        }
-
-        .project-status {
-            font-size: 0.68rem;
-            font-weight: 600;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            padding: 0.3rem 0.9rem;
-            border-radius: 2px;
-        }
-
-        .status-complete {
-            background: rgba(90, 173, 90, 0.15);
-            color: var(--forest-glow);
-            border: 1px solid rgba(90, 173, 90, 0.25);
-        }
-
-        .status-soon {
-            background: rgba(201, 168, 76, 0.1);
-            color: var(--gold);
-            border: 1px solid rgba(201, 168, 76, 0.2);
-        }
-
-        .project-card p {
-            font-size: 0.92rem;
-            color: var(--text-muted);
-            line-height: 1.75;
-            margin-bottom: 1.2rem;
-        }
-
+        .sec-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; }
+        .sec-title { font-family: 'Cormorant Garamond', serif; font-size: 2.6rem; font-weight: 600; color: var(--cream); margin-bottom: 1rem; }
+        .sec-sub { font-size: 0.95rem; color: var(--text-muted); line-height: 1.75; max-width: 540px; margin-bottom: 3rem; }
+        #about { background: linear-gradient(180deg, transparent 0%, rgba(30,48,30,0.25) 50%, transparent 100%); }
+        .about-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: start; }
+        .about-text p { font-size: 0.98rem; line-height: 1.9; color: var(--text-muted); margin-bottom: 1.4rem; }
+        .about-details { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+        .detail-card { padding: 1.6rem; background: rgba(42,74,42,0.18); border: 1px solid rgba(90,173,90,0.08); transition: all 0.3s; }
+        .detail-card:hover { border-color: rgba(201,168,76,0.25); transform: translateY(-3px); }
+        .detail-card .label { font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 0.45rem; }
+        .detail-card .value { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; color: var(--cream); }
+        .project-card { padding: 2.4rem; background: rgba(30,48,30,0.35); border: 1px solid rgba(90,173,90,0.08); margin-bottom: 1.5rem; transition: all 0.35s; }
+        .project-card:hover { border-color: rgba(201,168,76,0.25); background: rgba(30,48,30,0.5); transform: translateX(4px); }
+        .project-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.8rem; flex-wrap: wrap; gap: 0.5rem; }
+        .project-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.45rem; font-weight: 600; color: var(--cream); }
+        .project-status { font-size: 0.68rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; padding: 0.3rem 0.9rem; border-radius: 2px; }
+        .status-complete { background: rgba(90,173,90,0.15); color: var(--forest-glow); border: 1px solid rgba(90,173,90,0.25); }
+        .status-soon { background: rgba(201,168,76,0.1); color: var(--gold); border: 1px solid rgba(201,168,76,0.2); }
+        .project-card p { font-size: 0.92rem; color: var(--text-muted); line-height: 1.75; margin-bottom: 1.2rem; }
         .tags { display: flex; gap: 0.45rem; flex-wrap: wrap; }
-
-        .tag {
-            font-size: 0.68rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            padding: 0.3rem 0.75rem;
-            background: rgba(90, 173, 90, 0.08);
-            border: 1px solid rgba(90, 173, 90, 0.12);
-            color: var(--forest-glow);
-        }
-
-        /* ════════════ SKILLS ════════════ */
-        #skills { background: linear-gradient(180deg, transparent 0%, rgba(30, 48, 30, 0.25) 50%, transparent 100%); }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-        }
-
-        .skill-group {
-            padding: 2rem;
-            background: rgba(42, 74, 42, 0.15);
-            border: 1px solid rgba(90, 173, 90, 0.08);
-            transition: all 0.3s;
-        }
-
-        .skill-group:hover {
-            border-color: rgba(201, 168, 76, 0.2);
-            transform: translateY(-3px);
-        }
-
-        .skill-group h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--gold);
-            margin-bottom: 1rem;
-            padding-bottom: 0.75rem;
-            border-bottom: 1px solid rgba(90, 173, 90, 0.1);
-        }
-
-        .skill-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 0.6rem;
-        }
-
-        .skill-list li {
-            font-size: 0.88rem;
-            color: var(--text-muted);
-            padding-left: 1rem;
-            position: relative;
-        }
-
-        .skill-list li::before {
-            content: '›';
-            position: absolute;
-            left: 0;
-            color: var(--forest-glow);
-            font-weight: 600;
-        }
-
-        /* ════════════ RESUME SECTION ════════════ */
-        .resume-section {
-            text-align: center;
-            padding: 5rem 8%;
-            border-top: 1px solid rgba(90, 173, 90, 0.08);
-        }
-
+        .tag { font-size: 0.68rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; padding: 0.3rem 0.75rem; background: rgba(90,173,90,0.08); border: 1px solid rgba(90,173,90,0.12); color: var(--forest-glow); }
+        .project-buttons { display: flex; gap: 0.75rem; margin-top: 1rem; flex-wrap: wrap; }
+        #skills { background: linear-gradient(180deg, transparent 0%, rgba(30,48,30,0.25) 50%, transparent 100%); }
+        .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        .skill-group { padding: 2rem; background: rgba(42,74,42,0.15); border: 1px solid rgba(90,173,90,0.08); transition: all 0.3s; }
+        .skill-group:hover { border-color: rgba(201,168,76,0.2); transform: translateY(-3px); }
+        .skill-group h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; color: var(--gold); margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(90,173,90,0.1); }
+        .skill-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+        .skill-list li { font-size: 0.88rem; color: var(--text-muted); padding-left: 1rem; position: relative; }
+        .skill-list li::before { content: '›'; position: absolute; left: 0; color: var(--forest-glow); font-weight: 600; }
+        .resume-section { text-align: center; padding: 5rem 8%; border-top: 1px solid rgba(90,173,90,0.08); }
         .resume-section .sec-sub { margin: 0 auto 2rem; }
-
-        /* ════════════ FOOTER ════════════ */
-        footer {
-            position: relative;
-            z-index: 1;
-            text-align: center;
-            padding: 3rem 8%;
-            border-top: 1px solid rgba(90, 173, 90, 0.08);
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.82rem;
-            letter-spacing: 1px;
-            transition: color 0.3s;
-        }
-
+        footer { position: relative; z-index: 1; text-align: center; padding: 3rem 8%; border-top: 1px solid rgba(90,173,90,0.08); }
+        .footer-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; }
+        .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.82rem; letter-spacing: 1px; transition: color 0.3s; }
         .footer-links a:hover { color: var(--gold); }
-
-        .footer-copy {
-            font-size: 0.75rem;
-            color: rgba(168, 160, 152, 0.5);
-            letter-spacing: 1px;
-        }
-
-        /* ════════════ ANIMATIONS ════════════ */
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        /* Scroll-triggered fade in */
-        .reveal {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* ════════════ RESPONSIVE ════════════ */
-        @media (max-width: 900px) {
-            .hero h1 { font-size: 2.8rem; }
-            .hero-rings { display: none; }
-            .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-            .skills-grid { grid-template-columns: 1fr 1fr; }
-            .nav-links { display: none; }
-            .nav-hamburger { display: flex; }
-
-            .nav-links.open {
-                display: flex;
-                flex-direction: column;
-                position: absolute;
-                top: 100%; left: 0; right: 0;
-                background: rgba(22, 32, 22, 0.96);
-                padding: 1.5rem 5%;
-                gap: 1.2rem;
-                border-bottom: 1px solid rgba(90, 173, 90, 0.1);
-            }
-        }
-
-        @media (max-width: 600px) {
-            section { padding: 4.5rem 6%; }
-            .hero { padding: 0 6%; }
-            .hero h1 { font-size: 2.2rem; }
-            .sec-title { font-size: 2rem; }
-            .skills-grid { grid-template-columns: 1fr; }
-            .about-details { grid-template-columns: 1fr; }
-            .project-header { flex-direction: column; }
-        }
+        .footer-copy { font-size: 0.75rem; color: rgba(168,160,152,0.5); letter-spacing: 1px; }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        .reveal { opacity: 0; transform: translateY(25px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        @media (max-width: 900px) { .hero h1 { font-size: 2.8rem; } .hero-rings { display: none; } .about-grid { grid-template-columns: 1fr; gap: 2.5rem; } .skills-grid { grid-template-columns: 1fr 1fr; } .nav-links { display: none; } .nav-hamburger { display: flex; } .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: rgba(22,32,22,0.96); padding: 1.5rem 5%; gap: 1.2rem; border-bottom: 1px solid rgba(90,173,90,0.1); } }
+        @media (max-width: 600px) { section { padding: 4.5rem 6%; } .hero { padding: 0 6%; } .hero h1 { font-size: 2.2rem; } .sec-title { font-size: 2rem; } .skills-grid { grid-template-columns: 1fr; } .about-details { grid-template-columns: 1fr; } .project-header { flex-direction: column; } }
     </style>
 </head>
 <body>
-
-<!-- ═══════ NAVIGATION ═══════ -->
-<nav>
+    <nav>
     <div class="nav-logo">LBS</div>
     <button class="nav-hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
         <span></span><span></span><span></span>
@@ -548,7 +102,6 @@
     </ul>
 </nav>
 
-<!-- ═══════ HERO ═══════ -->
 <section class="hero">
     <div class="hero-content">
         <div class="hero-tag">Data Science · ML · Biomedical Engineering</div>
@@ -566,16 +119,15 @@
     </div>
 </section>
 
-<!-- ═══════ ABOUT ═══════ -->
 <section id="about">
     <div class="about-grid">
-        <div class="about-text">
+        <div class="about-text reveal">
             <p class="sec-label">About Me</p>
             <h2 class="sec-title">Engineering Meets<br>Data Science</h2>
             <p>I'm a senior Biomedical Engineering student at the University of Arkansas with a Minor in Computer Science, focused on applying data science, machine learning, and software to real-world problems.</p>
             <p>My projects sit at the intersection of engineering, health technology, and analytics, where I build practical solutions that turn data into insight and impact. I'm especially interested in AI-driven tools, technical problem solving, and developing systems that improve decision-making in healthcare and industry.</p>
         </div>
-        <div class="about-details">
+        <div class="about-details reveal">
             <div class="detail-card">
                 <div class="label">Degree</div>
                 <div class="value">B.S. Biomedical Engineering</div>
@@ -604,14 +156,12 @@
     </div>
 </section>
 
-<!-- ═══════ PROJECTS ═══════ -->
 <section id="projects">
-    <p class="sec-label">Projects</p>
-    <h2 class="sec-title">Selected Work</h2>
-    <p class="sec-sub">Data-driven projects exploring machine learning, analytics, and real-world problem solving.</p>
+    <p class="sec-label reveal">Projects</p>
+    <h2 class="sec-title reveal">Selected Work</h2>
+    <p class="sec-sub reveal">Data-driven projects exploring machine learning, analytics, and real-world problem solving.</p>
 
-    <!-- Project 1: Energy Demand Forecasting -->
-    <div class="project-card">
+    <div class="project-card reveal">
         <div class="project-header">
             <h3>Energy Demand Forecasting</h3>
             <span class="project-status status-complete">Completed</span>
@@ -626,25 +176,34 @@
             <span class="tag">Seaborn</span>
             <span class="tag">Jupyter</span>
         </div>
-        <a href="https://github.com/lbonadonasiles-lgtm/lbs.github.io/blob/main/energydemand.ipynb" target="_blank" rel="noopener" class="btn btn-outline" style="margin-top: 1rem; display: inline-flex;">View Code ↗</a>
-<a href="https://github.com/lbonadonasiles-lgtm/lbs.github.io/blob/main/README.md" target="_blank" rel="noopener" class="btn btn-outline" style="margin-top: 1rem; display: inline-flex;">Read More ↗</a>
+        <div class="project-buttons">
+            <a href="https://github.com/lbonadonasiles-lgtm/Energy-demand-forecasting" target="_blank" rel="noopener" class="btn btn-outline">View Code ↗</a>
+            <a href="https://github.com/lbonadonasiles-lgtm/Energy-demand-forecasting#readme" target="_blank" rel="noopener" class="btn btn-outline">Read More ↗</a>
+        </div>
     </div>
 
-    <!-- Project 2: Placeholder -->
-    <div class="project-card">
+    <div class="project-card reveal">
         <div class="project-header">
-            <h3>Project Coming Soon</h3>
-            <span class="project-status status-soon">In Progress</span>
+            <h3>Heart Disease Risk Prediction</h3>
+            <span class="project-status status-complete">Completed</span>
         </div>
-        <p>A new data analysis and machine learning project is currently in development. Details will be shared here once the project is complete.</p>
+        <p>Built a classification pipeline to predict heart disease presence using clinical patient data from 918 records. Analyzed relationships between chest pain types, ECG readings, and cardiac risk. Trained Logistic Regression, Random Forest, and XGBoost — Logistic Regression achieved the best accuracy at 89.7% with a disease recall of 92.2%, correctly identifying 94 out of 102 heart disease patients.</p>
         <div class="tags">
-            <span class="tag">Data Analysis</span>
-            <span class="tag">Machine Learning</span>
+            <span class="tag">Python</span>
+            <span class="tag">Pandas</span>
+            <span class="tag">Scikit-learn</span>
+            <span class="tag">XGBoost</span>
+            <span class="tag">Matplotlib</span>
+            <span class="tag">Seaborn</span>
+            <span class="tag">Jupyter</span>
+        </div>
+        <div class="project-buttons">
+            <a href="https://github.com/lbonadonasiles-lgtm/Heart-disease-prediction" target="_blank" rel="noopener" class="btn btn-outline">View Code ↗</a>
+            <a href="https://github.com/lbonadonasiles-lgtm/Heart-disease-prediction#readme" target="_blank" rel="noopener" class="btn btn-outline">Read More ↗</a>
         </div>
     </div>
 
-    <!-- Project 3: Placeholder -->
-    <div class="project-card">
+    <div class="project-card reveal">
         <div class="project-header">
             <h3>Project Coming Soon</h3>
             <span class="project-status status-soon">In Progress</span>
@@ -656,15 +215,13 @@
         </div>
     </div>
 </section>
-
-<!-- ═══════ SKILLS ═══════ -->
-<section id="skills">
-    <p class="sec-label">Skills &amp; Tools</p>
-    <h2 class="sec-title">Technical Toolkit</h2>
-    <p class="sec-sub">Languages, frameworks, and tools I use to build, analyze, and solve problems.</p>
+    <section id="skills">
+    <p class="sec-label reveal">Skills &amp; Tools</p>
+    <h2 class="sec-title reveal">Technical Toolkit</h2>
+    <p class="sec-sub reveal">Languages, frameworks, and tools I use to build, analyze, and solve problems.</p>
 
     <div class="skills-grid">
-        <div class="skill-group">
+        <div class="skill-group reveal">
             <h3>Programming</h3>
             <ul class="skill-list">
                 <li>Python</li>
@@ -673,7 +230,7 @@
                 <li>MATLAB</li>
             </ul>
         </div>
-        <div class="skill-group">
+        <div class="skill-group reveal">
             <h3>ML &amp; Data Libraries</h3>
             <ul class="skill-list">
                 <li>Pandas</li>
@@ -684,7 +241,7 @@
                 <li>Matplotlib &amp; Seaborn</li>
             </ul>
         </div>
-        <div class="skill-group">
+        <div class="skill-group reveal">
             <h3>Tools &amp; Platforms</h3>
             <ul class="skill-list">
                 <li>Jupyter Notebook</li>
@@ -693,7 +250,7 @@
                 <li>Excel</li>
             </ul>
         </div>
-        <div class="skill-group">
+        <div class="skill-group reveal">
             <h3>Engineering</h3>
             <ul class="skill-list">
                 <li>Technical Modeling</li>
@@ -702,7 +259,7 @@
                 <li>Statistical Analysis</li>
             </ul>
         </div>
-        <div class="skill-group">
+        <div class="skill-group reveal">
             <h3>Certifications</h3>
             <ul class="skill-list">
                 <li>CSWA (SolidWorks)</li>
@@ -710,7 +267,7 @@
                 <li>First Aid, CPR &amp; AED</li>
             </ul>
         </div>
-        <div class="skill-group">
+        <div class="skill-group reveal">
             <h3>Languages</h3>
             <ul class="skill-list">
                 <li>English — Fluent</li>
@@ -721,23 +278,28 @@
     </div>
 </section>
 
-<!-- ═══════ RESUME ═══════ -->
 <section id="resume" class="resume-section">
-    <p class="sec-label">Resume</p>
-    <h2 class="sec-title">Download My CV</h2>
-    <p class="sec-sub">For a full overview of my experience, education, and certifications.</p>
-    <a href="LBS_CV.pdf" download class="btn btn-gold">Download Resume ↓</a>
+    <p class="sec-label reveal">Resume</p>
+    <h2 class="sec-title reveal">Download My CV</h2>
+    <p class="sec-sub reveal">For a full overview of my experience, education, and certifications.</p>
+    <a href="LBS_CV.pdf" download class="btn btn-gold reveal">Download Resume ↓</a>
 </section>
 
-<!-- ═══════ FOOTER ═══════ -->
 <footer>
     <div class="footer-links">
-        <a href="/cdn-cgi/l/email-protection#127e3c707d7c73767d7c73617b7e776152757f737b7e3c717d7f"><span class="__cf_email__" data-cfemail="6f03410d00010e0b00010e1c06030a1c2f08020e0603410c0002">[email&#160;protected]</span></a>
+        <a href="mailto:l.bonadonasiles@gmail.com">l.bonadonasiles@gmail.com</a>
         <a href="https://www.linkedin.com/in/luciano-bonadona-2b39b3304/" target="_blank" rel="noopener">LinkedIn</a>
     </div>
     <p class="footer-copy">&copy; 2026 Luciano Bonadona Siles</p>
 </footer>
 
-<!-- ═══════ SCROLL REVEAL ═══════ -->
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-    const observer = new Intersec
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
+    
